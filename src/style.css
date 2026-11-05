@@ -1,0 +1,338 @@
+.micro {
+  font:
+    9px/1.5 "Courier New",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+.rally-game {
+  min-width: 0;
+  background: #063e34;
+  color: #f2f4dd;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px #06433322;
+  border: 1px solid #ffffff40;
+}
+.game-scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  background: #043d33;
+}
+.game-scoreboard > span:not(.game-lives) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.game-scoreboard small {
+  font: 9px var(--font-mono, monospace);
+  letter-spacing: 0.18em;
+  color: #bed5c4;
+}
+.game-scoreboard strong {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+.game-lives {
+  color: #e1f784;
+  letter-spacing: 8px;
+  font-size: 15px;
+}
+.game-lives i {
+  font-style: normal;
+  color: #729887;
+}
+.game-stage {
+  position: relative;
+}
+.game-stage canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  cursor: ew-resize;
+  outline-offset: -5px;
+}
+.game-stage canvas:focus-visible {
+  outline: 3px solid #e1f784;
+}
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #033b32bd;
+  backdrop-filter: blur(5px);
+  padding: 18px;
+}
+.game-overlay .micro {
+  color: #d6f38a;
+}
+.game-overlay h4 {
+  font-size: clamp(26px, 3vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  margin: 14px 0 12px;
+}
+.game-overlay p {
+  font-size: 12px;
+  color: #d3e5d7;
+  line-height: 1.5;
+}
+.game-overlay button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 40px;
+  background: #e1f784;
+  color: #084b3c;
+  font-size: 12px;
+  cursor: pointer;
+}
+.game-overlay button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.game-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 22px;
+  gap: 14px;
+  font-size: 10px;
+}
+.game-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #bed5c4;
+}
+.game-toolbar select {
+  border: 1px solid #92b3a266;
+  background: #164f42;
+  color: #f3f4e0;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+.game-toolbar > span {
+  color: #bed5c4;
+}
+.game-toolbar button {
+  border: 1px solid #92b3a266;
+  background: transparent;
+  border-radius: 50%;
+  color: #e1f784;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .game-scoreboard {
+    padding: 16px 18px;
+  }
+  .game-scoreboard strong {
+    font-size: 23px;
+  }
+  .game-scoreboard small {
+    font-size: 8px;
+  }
+  .game-toolbar {
+    padding: 12px;
+    gap: 8px;
+  }
+  .game-toolbar > span {
+    font-size: 8px;
+  }
+  .game-overlay h4 {
+    font-size: 28px;
+    margin: 8px 0;
+  }
+  .game-overlay p {
+    font-size: 10px;
+  }
+  .game-overlay .micro {
+    font-size: 8px;
+  }
+  .game-overlay button {
+    margin-top: 12px;
+    padding: 10px 16px;
+  }
+} /* Standalone project shell */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background:
+    radial-gradient(ellipse at 90% 0%, #c2dfbd, transparent 55%), #f5f1e5;
+  color: #084b3d;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select {
+  touch-action: manipulation;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #258a68;
+  outline-offset: 4px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+.lab-header,
+.lab-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1120px;
+  margin: auto;
+  padding: 28px 32px;
+  font-size: 12px;
+}
+.lab-header > a:first-child {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+.lab-header > a:first-child span {
+  color: #e69a7b;
+}
+.lab-header {
+  border-bottom: 1px solid #07544326;
+}
+.standalone-main {
+  max-width: 1020px;
+  margin: 65px auto 70px;
+  padding: 0 32px;
+}
+.eyebrow {
+  font: 9px monospace;
+  letter-spacing: 0.18em;
+  color: #3b7b58;
+}
+.standalone-main h1 {
+  font-size: clamp(44px, 7.5vw, 88px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+  margin: 20px 0;
+}
+.standalone-intro {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+.experiment-wrap {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #ffffffbb;
+  box-shadow: 0 25px 75px #06433320;
+}
+.standalone-note {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #51745c;
+  max-width: 740px;
+  margin-top: 24px;
+}
+.lab-footer {
+  border-top: 1px solid #07544326;
+}
+.world-preview,
+.wearable-preview {
+  min-height: 530px;
+}
+.island-scene {
+  height: 520px;
+}
+.wearable-layout {
+  padding: 100px 60px;
+}
+.wearable-feed {
+  max-width: 390px;
+}
+.watch-model {
+  transform: rotate(-12deg) scale(1.25);
+}
+.micro {
+  font: 9px monospace;
+  letter-spacing: 0.16em;
+}
+.world-preview button {
+  border: 0;
+  background: transparent;
+}
+.preview-bottom {
+  bottom: 24px;
+}
+.wearable-slider input {
+  height: 12px;
+}
+.world-preview .island-scene:focus {
+  outline: 2px solid #217c62;
+  outline-offset: -3px;
+}
+@media (max-width: 600px) {
+  .standalone-main {
+    margin-top: 45px;
+    padding: 0 20px;
+  }
+  .lab-header,
+  .lab-footer {
+    padding: 22px 20px;
+  }
+  .standalone-intro {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .experiment-wrap {
+    border-radius: 12px;
+  }
+  .world-preview,
+  .wearable-preview {
+    min-height: 400px;
+  }
+  .island-scene {
+    height: 390px;
+  }
+  .wearable-layout {
+    padding: 75px 20px;
+    grid-template-columns: 1fr 1.4fr;
+  }
+  .watch-model {
+    transform: rotate(-12deg) scale(0.9);
+  }
+  .lab-footer {
+    font-size: 10px;
+  }
+  .standalone-main h1 {
+    font-size: clamp(38px, 9.5vw, 60px);
+  }
+}
