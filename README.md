@@ -1,5 +1,7 @@
 # Rally Court
 
+**[Download & run locally](LOCAL.md)** — a short guide and ready-to-run ZIP.
+
 A playable tennis-inspired arcade game with a small court, three lives, a returning opponent, and a reason to play one more round.
 
 [Live portfolio preview](https://rishitpradhan.com/#offscreen) · [Rishit Pradhan](https://rishitpradhan.com)
